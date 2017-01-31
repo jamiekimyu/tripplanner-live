@@ -56,8 +56,41 @@ $(function initializeMap (){
     marker.setMap(currentMap);
   }
 
-  drawMarker('hotel', [40.705137, -74.007624]);
-  drawMarker('restaurant', [40.705137, -74.013940]);
-  drawMarker('activity', [40.716291, -73.995315]);
+$("#add-hotel").click(function() {
+  var hotelChoice = $("#hotel-choices").val();
+  var marker;
+  for(var i = 0; i<hotels.length; i++){
+    if(hotelChoice === hotels[i].name){
+      marker = hotels[i].place.location;
+    }
+  }
+     drawMarker('hotel', marker);
+})
+
+$("#add-restaurant").click(function() {
+  var restaurantChoice = $("#restaurant-choices").val();
+  var marker;
+  for(var i = 0; i<restaurants.length; i++){
+    if(restaurantChoice === restaurants[i].name){
+      marker = restaurants[i].place.location;
+    }
+  }
+     drawMarker('restaurant', marker);
+})
+
+$("#add-activity").click(function() {
+  var activityChoice = $("#activity-choices").val();
+  var marker;
+  for(var i = 0; i<activities.length; i++){
+    if(activityChoice === activities[i].name){
+      marker = activities[i].place.location;
+    }
+  }
+     drawMarker('activity', marker);
+})
+
+  // drawMarker('hotel', [40.705137, -74.007624]);
+  // drawMarker('restaurant', [40.705137, -74.013940]);
+  // drawMarker('activity', [40.716291, -73.995315]);
 
 });
